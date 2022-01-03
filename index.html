@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="content/style.css" rel="stylesheet" />
+    <script src="content/script.js"></script>
+    <script src="content/product-list.json"></script>
+    <script src="https://kit.fontawesome.com/f39dca7341.js" crossorigin="anonymous"></script><!--Icon Library-->
+    <title>Segmentify İşe Giriş Projesi</title>
+</head>
+<body>    
+    <div class="outside-container">
+        <div class="box-title">Sizin için Seçtiklerimiz</div>
+        <div class="box-body">
+            <div class="box-menu">
+                <ul id="categories"></ul>
+            </div>
+            <div class="box-products-container">
+                <div id="leftarrow" class="prev" onclick="goLeft()"><i class="fas fa-chevron-left"></i></div>
+                <div id="rightarrow" class="next arrowactive" onclick="goRight()"><i class="fas fa-chevron-right"></i></div>
+                <div class="box-products">
+                    <div id="products" class="box-products-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="alertbox1" class="addtocart-alert">
+        <div class="alert-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="alert-content">
+            <span>Ürün sepete eklendi.</span>
+            <a href="">Sepete Git</a>
+        </div>
+        <div class="alert-close"><i class="fas fa-times"></i></div>
+    </div>
+</body>
+</html>
