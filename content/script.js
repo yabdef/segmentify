@@ -76,25 +76,25 @@ function changeTab(i){
 function getProducts(){
     /*Connecting Json File*/
     var data=fetch("content/product-list.json").then(response=>response.json()).then(database=>{
-    var degisken=database.responses[0][0].params.recommendedProducts[selectedtab];
+    var degisken=Object.values(database.responses[0][0].params.recommendedProducts)[selectedtab];
     
     /*Getting each product in selected category*/
-    for (let i = 0; i < Object.values(degisken)[0].length; i++) {
+    for (let i = 0; i < degisken.length; i++) {
       
       /*Creating HTML components*/
       var item1=document.createElement("div");
       item1.className="product-image";
-      item1.innerHTML="<img alt='"+Object.values(degisken)[0][i].name+"' loading='lazy' src='"+Object.values(degisken)[0][i].image+"' width='100%' draggable='false'>";
+      item1.innerHTML="<img alt='"+degisken[i].name+"' loading='lazy' src='"+degisken[i].image+"' width='100%' draggable='false'>";
       var item2=document.createElement("div");
       item2.className="product-title";
-      item2.innerHTML=Object.values(degisken)[0][i].name;
+      item2.innerHTML=degisken[i].name;
       var item3=document.createElement("div");
       item3.className="product-price";
-      item3.innerHTML=Object.values(degisken)[0][i].priceText;
+      item3.innerHTML=degisken[i].priceText;
       var item4=document.createElement("div");
       item4.className="product-shipping";
       /*Shipping fee If Loop*/  
-      if(Object.values(degisken)[0][i].params.shippingFee=='FREE'){
+      if(degisken[i].params.shippingFee=='FREE'){
         item4.innerHTML="<i class='fas fa-truck'></i> Ücretsiz Kargo";
       }   
       /*Creating HTML components*/
