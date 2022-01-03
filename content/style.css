@@ -20,7 +20,7 @@ body{
     background-color: white;
     border-radius: 5px;
     margin: 10px 5%;
-    box-shadow: 0 1px 3px 0px rgb(0 0 0 / 30%);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
 }
 .box-title{
     width:100%;
@@ -62,7 +62,7 @@ body{
     font-weight: 500;
     letter-spacing: 0.2px;
     transition: 0.25s;
-    box-shadow: 0 1px 1px 0px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
 }
 .menu-active .menu-text{
     background-color:#EFF7FD;
@@ -72,7 +72,7 @@ body{
     letter-spacing: 0.2px;
     transition: 0.25s;
     text-align: left;
-    box-shadow: 0 1px 1px 0px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
 }
 .menu-active .menu-tab{
     visibility: visible;
@@ -175,7 +175,7 @@ body{
     background-color: white;
     height: 80px;
     width: 40px;
-    left: 0px;
+    left: 0;
     position: absolute;
     top: 25%;
     transform: translate(0, -50%);
@@ -184,7 +184,7 @@ body{
     text-align: center;
     line-height: 80px;
     z-index: 1;
-    margin-left:0px;
+    margin-left:0;
 }
 .prev i,.next i{
     color: #ebebeb;
@@ -289,7 +289,7 @@ body{
         margin: 10px 0;
     }
     .product-container{
-        box-shadow: 0px 0px 5px 6px rgb(0 0 0 / 5%);
+        box-shadow: 0 0 5px 6px rgb(0 0 0 / 5%);
     }
     .box-products-content{
         margin:10px;
@@ -307,13 +307,14 @@ body{
         -ms-overflow-style: none;
         scrollbar-width: none;
         overflow-x: scroll;
+        scroll-behavior: smooth;
     }
     .box-menu::-webkit-scrollbar{
         display: none;
     }
     .box-body{
         display: block;
-        padding: 5px;
+        padding: 5px 0;
     }
     .box-products-container{
         width: 100%;

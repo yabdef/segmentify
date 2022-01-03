@@ -28,41 +28,35 @@
       document.getElementById("rightarrow").className="next arrowactive";
     }
   });
-
-  /*Grab to Scroll*/
+  /*Horizontal Scrolling with Drag Move*/
     let pos = {left: 0, x: 0};
-
     const mouseDownHandler = function (e) {
         pos = {
             left: scrollElement.scrollLeft,
-            // Get the current mouse position
             x: e.clientX,
         };
-
         document.addEventListener('mousemove', mouseMoveHandler);
         document.addEventListener('mouseup', mouseUpHandler);
     };
-
     const mouseMoveHandler = function (e) {
-        // How far the mouse has been moved
         const dx = e.clientX - pos.x;
-
-        // Scroll the element
         scrollElement.scrollLeft = pos.left - dx;
     };
-
     const mouseUpHandler = function () {
         document.removeEventListener('mousemove', mouseMoveHandler);
         document.removeEventListener('mouseup', mouseUpHandler);
     };
-
-    // Attach the handler
     scrollElement.addEventListener('mousedown', mouseDownHandler);
 });
 function addToCart(){
+  document.getElementById('alertbox1').style.opacity=1;
   document.getElementById('alertbox1').className="addtocart-alert alert-active";
+  setTimeout(() => {closeAlert()}, 3000);
+
 }
 function closeAlert(){
+  document.getElementById('alertbox1').style.opacity=0;
+  document.getElementById('alertbox1').style.transition=".5s";
   document.getElementById('alertbox1').className="addtocart-alert";
 }
 function changeTab(i){
@@ -76,6 +70,7 @@ function changeTab(i){
   for (let j = 0; j < document.getElementsByClassName("menu-active").length; j++) {
     document.getElementsByClassName("menu-active")[j].className="menu-inactive";
   }
+  document.getElementsByClassName("box-menu")[0].scrollLeft+=document.getElementsByClassName("menu-inactive")[i].getBoundingClientRect().left;
   document.getElementsByClassName("menu-inactive")[i].className="menu-active";
 }
 function getProducts(){
@@ -89,7 +84,7 @@ function getProducts(){
       /*Creating HTML components*/
       var item1=document.createElement("div");
       item1.className="product-image";
-      item1.innerHTML="<img loading='lazy' src='"+Object.values(degisken)[0][i].image+"' width='100%' draggable='false'>";
+      item1.innerHTML="<img alt='"+Object.values(degisken)[0][i].name+"' loading='lazy' src='"+Object.values(degisken)[0][i].image+"' width='100%' draggable='false'>";
       var item2=document.createElement("div");
       item2.className="product-title";
       item2.innerHTML=Object.values(degisken)[0][i].name;
